@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+<body>
+
+
+<!-- <form> contains total visual markup -->
+<!-- Value 1 and Value 2 are the two input types-->
+<!-- Operator is a select form that contains options from which you can pick from, such as add, min, div, mul. Each option has a value pertaining to the text itself. You have to select an option to use. 
+-->
+<!-- After select form, there is a button that you can click to calculate the result. On the click, the function is invoked. -->
+<!-- The visual result needs a place to go. A div is used for this. -->
+
+<form>
+Value 1: <input type="text" id="value1"> 
+Value 2: <input type="text" id="value2">
+Operator:
+    <select id="operator">
+        <option value="add">Add</option>
+        <option value="min">Min</option>
+        <option value="div">Div</option>
+        <option value="mul">Mul</option>
+    </select>
+    <button type="button" onclick="calc()">Calculate</button>
+</form>
+<div id="result"></div>
+
+</body>
+<script src="index.js"></script>
+</html>

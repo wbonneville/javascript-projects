@@ -1,0 +1,30 @@
+* {
+    font-family: 'Futura';
+}
+
+body {
+    background: url('images/img.jpg');
+}
+
+#styleId {
+    display: flex;
+    justify-content: center;
+    width: auto;
+    padding: 25px;
+}
+
+#innerText {
+display: flex;
+justify-content: center;
+width: auto;
+padding: 20px;
+font-size: 25px;
+color: #fff;
+}
+
+#quoteGen {
+    font-size: 50px;
+    color: #fff;
+    background-color: rgb(144, 186, 194);
+    border: 2.5px solid white;
+}
