@@ -1,0 +1,42 @@
+body {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Futura';
+    color: red;
+    background-image: url('images/space.jpg')
+}
+
+#container {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+#container h1 {
+    font-size: 48px;
+    text-shadow: 2px 2px #ff000056;
+}
+
+#amounth1 {
+    font-size: 24px;
+}
+
+.button {
+    margin-top: 200px;
+    color: red;
+    font-size: 16px;
+    font-family: inherit;
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden; 
+    border: 2px solid transparent;
+}
+
+.button:hover{
+    border: 2px solid red;
+    color: white;
+}
