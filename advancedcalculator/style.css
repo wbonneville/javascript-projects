@@ -1,0 +1,19 @@
+
+body {
+    display: flex;
+    justify-content: center;
+}
+
+#filler {
+    background-color: rgb(188, 188, 190);
+}
+
+#container {
+    width: 50%;
+}
+
+.button {
+    font-size: 45px;
+    float: left;
+    width: 25%;
+}
