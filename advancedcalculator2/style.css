@@ -26,7 +26,7 @@ h1 {
     width: 100%;
     font-size: 7rem;
     padding: 0.5rem;
-    background: transparent;
+    background: rgba(255, 255, 255, 0.055);
     color: white;
     border: none;
 }
@@ -35,6 +35,7 @@ h1 {
     display: flex;
     flex-wrap: wrap;
     transition: all 0.5s linear;
+    padding-bottom: 50px;
 }
 
 button {
