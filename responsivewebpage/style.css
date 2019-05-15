@@ -26,9 +26,27 @@
     transition: all 2s ease;
 }
 
+.change .bar1 {
+    transform: rotate(-45deg) translate(-10px, 10px)
+}
+
+.change .bar2 {
+    opacity: 0;
+}
+
+.change .bar3 {
+    transform: rotate(45deg) translate(-8px, -8px)
+}
+
 .navbar__links {
     list-style-type: none;
-    transition: all 2s ease;
+    transition: all 1s ease;
+    height: 0;
+    overflow: hidden;
+}
+
+.navbar__collapse {
+    height: 240px;
 }
 
 .navbar__single-link {
