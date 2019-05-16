@@ -8,9 +8,56 @@
     <!-- font awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
     <!-- custom css -->
-<link href="style.css" rel="stylsheet">
+<link href="style.css" rel="stylesheet">
 </head>
 <body>
+    <!-- navbar -->
+<navbar class="navbar">
+    <div class="navbar-center">
+        <span class="nav-icon">
+            <i class="fas fa-bars"></i>
+        </span>
+        <img src="images/logo.svg" alt="store logo">
+        <div class="cart-btn">
+            <span class="nav-icon">
+                <i class="fas fa-cart-plus"></i>
+            </span>
+            <div class="cart-items">0</div>
+        </div>
+    </div>
+</navbar>
+    <!-- end of navbar -->
+    <!-- hero -->
+    <header class="hero">
+        <div class="banner">
+            <h1 class="banner-title">
+                Furniture Collection </h1>
+            <button class="banner-btn">Shop Now</button>
+        </div>
+    </header>
+    <!-- end of hero -->
+    <!-- products -->
+    <section class="products">
+        <div class="section-title">
+            <h2>our products</h2>
+        </div>
+        <div class="products-center">
+            <!-- single product-->
+            <article class="product">
+                <div class="img-container">
+                    <img src="./images/product-1.jpeg" alt="product" class="product-img">
+                    <button class="bag-btn" data-id="1">
+                        <i class="fas fa-shopping-cart">
+                            add to bag </i>
+                    </button>
+                </div>
+                <h3>queen bed</h3>
+                <h4>$16</h4>
+            </article>
+            <!-- end of single product-->            
+        </div>
+    </section>
+    <!-- end of products -->
     <script src="index.js"></script>
 </body>
 </html>
