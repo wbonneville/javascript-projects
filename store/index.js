@@ -68,24 +68,43 @@ class UI {
                     button.innerText = "In Cart"
                     button.disabled = true;
                 } 
-                    button.addEventListener('click', (event)=> {
+                    button.addEventListener('click', event => {
                         event.target.innerText = "In Cart";
                         event.target.disabled = true;
                         // get product from products 
+                        let cartItem = {...Storage.getProduct(id), amount: 1 }
                         // add product to the cart
+                        cart = [...cart, cartItem];
                         // save cart in local storage
+                        Storage.saveCart(cart)
                         // set cart values
+                        this.setCartValues(cart)
                         // display cart item
                         // show the cart
                     })
-                }
-        })
+                })
+        }
+        setCartValues(cart) {
+            let tempTotal = 0;
+            let itemsTotal = 0;
+            cart.map(item => {
+                tempTotal += item.price * item.amount;
+                itemsTotal += item.amount
+            })
+            
+        }
     }
-}
 // local storage
 class Storage {
     static saveProducts(products){
         localStorage.setItem("products", JSON.stringify(products))
+    }
+    static getProduct(id) {
+        let products = JSON.parse(localStorage.getItem('products'));
+        return products.find(product => product.id === id)
+    }
+    static saveCart(cart) {
+        localStorage.setItem('cart', JSON.stringify(cart))
     }
 }
 document.addEventListener('DOMContentLoaded', () => { // event listening for DOM content to load
