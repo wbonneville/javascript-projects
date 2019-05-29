@@ -8,7 +8,7 @@
 }
 
 body {
-    background-color: #292C34;
+    background-color: rgba(21, 87, 104, 0.664);
 }
 img {
     height: 80px;
@@ -20,7 +20,7 @@ header {
 }
 
 header > h1 {
-    color: #25272e;
+    color: #2d2e25;
     text-align: center;
 }
 
@@ -37,7 +37,7 @@ header > h1 {
 }
 
 .badge {
-    background: #E2584D;
+    background: rgb(221, 77, 226);
     color: white;
     font-size: 14px;
     padding: 2px 10px;
@@ -91,3 +91,20 @@ header > h1 {
     font-size: 20px;
     margin-top: 20px;
 }
+
+#resultMessage {
+    padding-bottom: 20px;
+}
+
+#hint {
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    font-size: 14px;
+    padding-top: 20px;
+}
+
+a {color:#FF0000;}         /* Unvisited link  */
+a:visited {color:rgb(255, 255, 255);} /* Visited link    */
+a:hover {color:rgb(0, 0, 0);}   /* Mouse over link */
+a:active {color:#0000FF;}  /* Selected link   */

@@ -8,6 +8,7 @@ const resultMessage = document.getElementById('resultMessage')
 const rock_div = document.getElementById('r');
 const paper_div = document.getElementById('p');
 const scissors_div = document.getElementById('s');
+const hint = document.getElementById('hint');
 
 function getComputerChoice() {
     const choices = ['r', 'p', 's'];
@@ -44,7 +45,7 @@ function game(userChoice) {
             console.log("computer wins")
             break;
         case "rp":
-            resultMessage.innerHTML = "Paper beats rock. You lose";
+            resultMessage.innerHTML = "Paper beats rock. You lose.";
             computerScore.value += 1;
             computerScore_span.innerHTML = computerScore.value;
             console.log("computer wins")
@@ -56,15 +57,28 @@ function game(userChoice) {
             console.log("computer wins")
             break;
         case "rr":
+            resultMessage.innerHTML = "Rock doesn't beat rock. Tie!";
+            console.log("its a tie")
+            break;
         case "pp":
+            resultMessage.innerHTML = "Paper doesn't beat paper. Tie!";
+            console.log("its a tie")
+            break;
         case "ss":
-            resultMessage.innerHTML = "Tie!";
+            resultMessage.innerHTML = "Scissors doesn't beat scissors. Tie!";
             console.log("its a tie")
             break;
     }
+
+    if (computerScore.value > 20 && userScore.value < 20 || computerScore.value > 10 && userScore.value < 10) {
+       hint.innerHTML = `Yeah... seems like you could use some <a href="https://www.wikihow.com/Play-Rock,-Paper,-Scissors" target="_blank">help.</a>`
+    }
+
+    if (computerScore.value < 20 && userScore.value > 20 || computerScore.value < 10 && userScore.value > 10) {
+        hint.innerHTML = `Yeah... you're killing it. Seems like the computer could use some <a href="https://www.wikihow.com/Play-Rock,-Paper,-Scissors" target="_blank">help.</a>`
+     }
+
 }
-
-
 
 function main() {
     rock_div.addEventListener('click', function() {
