@@ -1,11 +1,11 @@
 window.addEventListener('load', () => {
 let long;
 let lat;
-let temperatureDescription = document.querySelector('.temperature-description')
-let temperatureDegree = document.querySelector('.temperature-degree')
-let locationTimezone = document.querySelector('.location-timezone')
-let temperatureSection = document.querySelector('.temperature-section')
-const temperatureSpan = document.querySelector('.temperature-section span')
+let temperatureDescription = document.querySelector('.temperature-description');
+let temperatureDegree = document.querySelector('.temperature-degree');
+let locationTimezone = document.querySelector('.location-timezone');
+let temperatureSection = document.querySelector('.temperature');
+const temperatureSpan = document.querySelector('.temperature span');
 
 
 if (navigator.geolocation) {
@@ -25,11 +25,18 @@ if (navigator.geolocation) {
             //Set DOM Elements from the API
             temperatureDegree.textContent = temperature;
             temperatureDescription.textContent = summary;
-            locationTimezone.textContent = data.timezone
+            locationTimezone.textContent = data.timezone;
                 //Set icons
                 setIcons(icon, document.querySelector(".icon"))
 
-                //Change temp to 
+                //Change temp to celsius
+                temperatureSection.addEventListener('click', () => {
+                    if(temperatureSpan.textContent === "F") {
+                        temperatureSpan.textContent = "C";
+                    } else {
+                        temperatureSpan.textContent = "F";
+                    }
+                })
         })
     });
     }
