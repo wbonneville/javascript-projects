@@ -26,6 +26,12 @@ if (navigator.geolocation) {
             temperatureDegree.textContent = temperature;
             temperatureDescription.textContent = summary;
             locationTimezone.textContent = data.timezone;
+                //celsius formula
+
+                let celsius = (temperature - 32) * (5 / 9); 
+
+
+
                 //Set icons
                 setIcons(icon, document.querySelector(".icon"))
 
@@ -33,8 +39,10 @@ if (navigator.geolocation) {
                 temperatureSection.addEventListener('click', () => {
                     if(temperatureSpan.textContent === "F") {
                         temperatureSpan.textContent = "C";
+                        temperatureDegree.textContent = Math.floor(celsius);
                     } else {
                         temperatureSpan.textContent = "F";
+                        temperatureDegree.textContent = temperature;
                     }
                 })
         })
