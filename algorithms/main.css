@@ -1,0 +1,40 @@
+* {
+    font-family: 'Futura'
+}
+
+button {
+    font-size: 20px;
+    border: 2px solid red;
+}
+
+input {
+    border: 2px solid red;
+    display: flex;
+}
+
+#temp {
+    display: flex;
+    justify-content: center;
+    width: auto;
+    padding: 25px;
+}
+
+#reverse {
+    display: flex;
+    justify-content: center;
+    width: auto;
+    padding: 25px;
+
+}
+
+#factorialize {
+    display: flex;
+    justify-content: center;
+    width: auto;
+    padding: 25px;
+}
+
+#h2one, #h2two, #h2three{
+    display: flex;
+    justify-content: center;
+}
