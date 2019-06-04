@@ -20,10 +20,10 @@ function callFunction () {
 // Reverse
 
 var string = document.getElementById('string')
-var button = document.getElementById('buttonReverse')
-var result = document.getElementById('resultReverse')
+var reverseButton = document.getElementById('buttonReverse')
+var reversedResult = document.getElementById('resultReverse')
 
-button.addEventListener('click', returnString)
+reverseButton.addEventListener('click', returnString)
 
 
 function reverseString(str) {
@@ -31,6 +31,26 @@ function reverseString(str) {
 }
 
 function returnString () {
-  resultReverse.innerHTML = reverseString(string.value)
-  console.log(resultReverse)
+  reverseResult.innerHTML = reverseString(string.value)
+  console.log(reverseResult)
 }
+
+// End of Reverse
+// Factorialize
+
+var numberToFactor = document.getElementById('number')
+var factorButton = document.getElementById('factorializeNumber')
+var factoredNumber = document.getElementById('factoredNumber')
+
+factorButton.addEventListener('click', callFactorialize)
+
+function callFactorialize() {
+  factoredNumber.innerHTML = factorialize(numberToFactor.value)
+}
+
+function factorialize(num) {
+  if (num < 0) return;
+  if (num === 0) return 1;
+  return num * factorialize(num - 1)
+}
+
