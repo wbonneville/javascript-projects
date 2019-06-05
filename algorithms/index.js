@@ -3,6 +3,15 @@
 var input = document.getElementById('input')
 var button = document.getElementById('button');
 var result = document.getElementById('result');
+var string = document.getElementById('string')
+var reverseButton = document.getElementById('buttonReverse')
+var reversedResult = document.getElementById('resultReverse')
+var numberToFactor = document.getElementById('number')
+var factorButton = document.getElementById('factorializeNumber')
+var factoredNumber = document.getElementById('factoredNumber')
+var longStringInput = document.getElementById('longString');
+var checkLongestWord = document.getElementById('checkLongestWord');
+var longestWord = document.getElementById('longestWord');
 
 button.addEventListener('click', callFunction)
 
@@ -19,9 +28,7 @@ function callFunction () {
 // End of temp
 // Reverse
 
-var string = document.getElementById('string')
-var reverseButton = document.getElementById('buttonReverse')
-var reversedResult = document.getElementById('resultReverse')
+
 
 reverseButton.addEventListener('click', returnString)
 
@@ -38,9 +45,7 @@ function returnString () {
 // End of reverse
 // Factorialize
 
-var numberToFactor = document.getElementById('number')
-var factorButton = document.getElementById('factorializeNumber')
-var factoredNumber = document.getElementById('factoredNumber')
+
 
 factorButton.addEventListener('click', callFactorialize)
 
@@ -57,9 +62,7 @@ function factorialize(num) {
 // End of factorialize
 // Find longest word
 
-var longStringInput = document.getElementById('longString');
-var checkLongestWord = document.getElementById('checkLongestWord');
-var longestWord = document.getElementById('longestWord');
+
 
 checkLongestWord.addEventListener('click', callFinderFunction)
 
