@@ -16,7 +16,7 @@ function callFunction () {
     result.innerHTML = convertToF(input.value)
 }
 
-// End of Temp
+// End of temp
 // Reverse
 
 var string = document.getElementById('string')
@@ -35,7 +35,7 @@ function returnString () {
   console.log(reverseResult)
 }
 
-// End of Reverse
+// End of reverse
 // Factorialize
 
 var numberToFactor = document.getElementById('number')
@@ -52,5 +52,32 @@ function factorialize(num) {
   if (num < 0) return;
   if (num === 0) return 1;
   return num * factorialize(num - 1)
+}
+
+// End of factorialize
+// Find longest word
+
+
+var longStringInput = document.getElementById('longString');
+var checkLongestWord = document.getElementById('checkLongestWord');
+var longestWord = document.getElementById('longestWord');
+
+checkLongestWord.addEventListener('click', callFinderFunction)
+
+
+function callFinderFunction () {
+  longestWord.innerHTML = findLongestWordLength(longStringInput.value);
+}
+
+function findLongestWordLength(str) {
+  var words = str.split(' ');
+  var maxLength = 0;
+
+  for (var i = 0; i < words.length; i++) {
+    if (words[i].length > maxLength) {
+      maxLength = words[i].length;
+    }
+  }
+return maxLength;
 }
 
