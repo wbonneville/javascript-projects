@@ -86,10 +86,15 @@ return maxLength;
 
 // Largest number
 
+var numberInput = document.getElementById('numberGroup')
+var numberButton = document.getElementById('checkLargestNumber')
+var largestNumberPrinted = document.getElementById('largestNumber')
 
+numberButton.addEventListener('click', callNumberFunction)
 
-
-
+function callNumberFunction () {
+  largestNumberPrinted.innerHTML = largestOfFour(numberInput.value)
+}
 
 function largestOfFour(arr) {
   var results = [];
