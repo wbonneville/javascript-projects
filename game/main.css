@@ -1,3 +1,7 @@
+* {
+    font-family: 'Futura';
+}
+
 canvas {
     position: absolute;
     width: 480px;
@@ -6,4 +10,11 @@ canvas {
     top: 50%;
     margin-left: -240px;
     margin-top: -160px;
+}
+
+#h1 {
+    display: flex;
+    justify-content: center;
+    width: auto;
+    padding-top: 50px;
 }

@@ -20,7 +20,10 @@
 
     <canvas id="myCanvas" width="480" height="320"></canvas>
 
+    <h1 id="h1"></h1>
+
     <script>
+        var youLose = document.getElementById('h1');
         var canvas = document.getElementById('myCanvas');
         var ctx = canvas.getContext('2d')
         var x = canvas.width - 450;
@@ -29,13 +32,18 @@
         var dy = -2;
         var ballRadius = 30;
         var paddleHeight = 10;
-        var paddleWidth = 150;
+        var paddleWidth = 70;
         var paddleX = (canvas.width - paddleWidth) / 2;
         var rightPressed = false;
         var leftPressed = false;
+        var enterPressed = false;
 
         document.addEventListener("keydown", keyDownHandler, false);
         document.addEventListener("keyup", keyUpHandler, false);
+        document.addEventListener("keydown", enterDownHandler, false);
+        document.addEventListener("keyup", enterUpHandler, false);
+
+
 
         function keyDownHandler(e) {
             if (e.key == "Right" || e.key == "ArrowRight") {
@@ -50,6 +58,18 @@
                 rightPressed = false;
             } else if (e.key == "Left" || e.key == "ArrowLeft") {
                 leftPressed = false;
+            }
+        }
+
+        function enterDownHandler(e) {
+            if (e.key === "Enter") {
+                enterPressed = true;
+            }
+        }
+
+        function enterUpHandler(e) {
+            if (e.key === 13) {
+                enterPressed = false;
             }
         }
 
@@ -84,23 +104,25 @@
                 if (x > paddleX && x < paddleX + paddleWidth) {
                     dy = -dy;
                 } else {
-                    alert("GAME OVER");
-                    document.location.reload();
-                    clearInterval(interval);
+                    youLose.innerHTML = "You lose... press Enter to try again."
+                    if (enterPressed) {
+                        document.location.reload();
+                        clearInterval(interval);
+                    }
                 }
             }
 
             if (rightPressed && paddleX < canvas.width - paddleWidth) {
-                paddleX += 10;
+                paddleX += 5;
             } else if (leftPressed && paddleX > 0) {
-                paddleX -= 10;
+                paddleX -= 5;
             }
             x += dx;
             y += dy;
         }
 
 
-        var interval = setInterval(draw, 10);
+        var interval = setInterval(draw, 5);
     </script>
 
     </body>
