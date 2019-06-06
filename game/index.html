@@ -16,25 +16,34 @@
             margin: 0 auto;
         }
     </style>
-</head>
-
-<body>
+    <link href="main.css" rel="stylesheet" </head> <body>
 
     <canvas id="myCanvas" width="480" height="320"></canvas>
 
     <script>
         var canvas = document.getElementById('myCanvas');
         var ctx = canvas.getContext('2d')
-        var x = canvas.width - 470;
+        var x = canvas.width - 450;
         var y = canvas.height - 160
         var dx = 1;
-        var dy = 0;
-        var ballRadius = 10;
+        var dy = -2;
+        var ballRadius = 30;
+        var paddleHeight = 10;
+        var paddleWidth = 75;
+        var paddleX = (canvas.width - paddleWidth) / 2;
 
         function drawBall() {
             ctx.beginPath();
             ctx.arc(x, y, ballRadius, 0, Math.PI * 2);
-            ctx.fillStyle = "#0095DD";
+            ctx.fillStyle = "skyblue";
+            ctx.fill();
+            ctx.closePath();
+        }
+
+        function drawPaddle() {
+            ctx.beginPath();
+            ctx.rect(paddleX, canvas.height - paddleHeight, paddleWidth, paddleHeight)
+            ctx.fillStyle = '#0095DD';
             ctx.fill();
             ctx.closePath();
         }
@@ -57,6 +66,6 @@
         setInterval(draw, 1)
     </script>
 
-</body>
+    </body>
 
 </html>
