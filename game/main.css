@@ -1,6 +1,11 @@
+* {
+    font-family: 'Futura';
+}
+
 body {
     background-color: white;
     font-family: 'Futura';
+    z-index: 10;
 }
 
 canvas {
@@ -11,8 +16,7 @@ canvas {
     top: 50%;
     margin-left: -240px;
     margin-top: -160px;
-    background-color: rgb(226, 211, 184);
-    border: 3px solid rgb(255, 255, 255);
+    z-index: 1;
 }
 
 button:focus {
@@ -24,22 +28,75 @@ button:focus {
     justify-content: center;
     width: auto;
     padding-top: 50px;
+    z-index: 3;
+    color: white;
 }
 
 #nightMode,
 #dayMode {
     display: flex;
-    margin-left: 200px;
+    margin-left: 100px;
+    z-index: 3;
 }
 
 #dayMode {
     padding-top: 10px;
+    z-index: 3;
 }
 
 .nightModeClass,
 .dayModeClass {
-    font-size: 16px;
-    background-color: rgb(255, 255, 255);
-    color: rgb(0, 0, 0);
+    font-size: 14px;
+    color: rgb(255, 255, 255);
+    background-color: transparent;
     border: 2px solid rgb(0, 0, 0);
+    z-index: 3;
+}
+
+@keyframes move-background {
+    from {
+        -webkit-transform: translate3d(0px, 0px, 0px);
+    }
+
+    to {
+        -webkit-transform: translate3d(1000px, 0px, 0px);
+    }
+}
+
+.background-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+
+.stars {
+    background: black url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/stars.png) repeat;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: block;
+    z-index: 0;
+}
+
+.twinkling {
+    width: 10000px;
+    height: 100%;
+    background: transparent url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/twinkling.png") repeat;
+    background-size: 1000px 1000px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 1;
+
+    -moz-animation: move-background 70s linear infinite;
+    -ms-animation: move-background 70s linear infinite;
+    -o-animation: move-background 70s linear infinite;
+    -webkit-animation: move-background 70s linear infinite;
+    animation: move-background 70s linear infinite;
+
 }

@@ -10,7 +10,6 @@
       }
 
       canvas {
-        background: #eee;
         display: block;
         margin: 0 auto;
       }
@@ -27,13 +26,19 @@
         &nbsp;Night Mode&nbsp;
       </button>
     </div>
-    <div id="dayMode">
+    <!-- <div id="dayMode"> -->
       <button type="button" id="toggleDay" class="dayModeClass hvr-glow">
         &nbsp;Day Mode&nbsp;
       </button>
     </div>
+    <div class="background-container">
+            <div class="stars"></div>
+            <div class="twinkling"></div>
+            
+            
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-
+    <script type="text/javascript" src="js/paper.js"></script>
+    <script type="text/paperscript" canvas="myCanvas"></script>
     <script>
       var youLose = document.getElementById("h1");
       var canvas = document.getElementById("myCanvas");
@@ -60,6 +65,8 @@
       var score = 0;
       var toggleNight = document.getElementById("toggleNight");
       var toggleDay = document.getElementById("toggleDay");
+      var lives = 3;
+
 
       var bricks = [];
       for (var c = 0; c < brickColumnCount; c++) {
@@ -134,7 +141,13 @@
       function drawScore() {
         ctx.font = "16px Futura";
         ctx.fillStyle = "#0095DD";
-        ctx.fillText("score: " + score, 8, 18);
+        ctx.fillText("score: " + score, 8, 16);
+      }
+
+      function drawLives() {
+        ctx.font = "16px Arial";
+        ctx.fillStyle = "#0095DD";
+        ctx.fillText("Lives: " + lives, canvas.width - 65, 20);
       }
 
       function enterDownHandler(e) {
@@ -152,7 +165,7 @@
       function drawBall() {
         ctx.beginPath();
         ctx.arc(x, y, ballRadius, 1, Math.PI * 3);
-        ctx.fillStyle = "red";
+        ctx.fillStyle = "white";
         ctx.fill();
         ctx.closePath();
       }
@@ -164,8 +177,10 @@
           canvas.height - paddleHeight,
           paddleWidth,
           paddleHeight
+          
         );
-        ctx.fillStyle = "#0095DD";
+        
+        ctx.fillStyle = "white";
         ctx.fill();
         ctx.closePath();
       }
