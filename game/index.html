@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <title>Gamedev Canvas Workshop</title>
+    <title>Block Crusher Game</title>
     <style>
       * {
         padding: 0;
@@ -16,18 +16,19 @@
       }
     </style>
     <link href="main.css" rel="stylesheet" />
+    <link href="hover.css" rel="stylesheet" />
   </head>
   <body>
     <canvas id="myCanvas" width="480" height="320"></canvas>
 
     <h1 id="h1">Block Crusher Game</h1>
     <div id="nightMode">
-      <button type="button" id="toggleNight" class="nightModeClass">
+      <button type="button" id="toggleNight" class="nightModeClass hvr-glow">
         &nbsp;Night Mode&nbsp;
       </button>
     </div>
     <div id="dayMode">
-      <button type="button" id="toggleDay" class="dayModeClass">
+      <button type="button" id="toggleDay" class="dayModeClass hvr-glow">
         &nbsp;Day Mode&nbsp;
       </button>
     </div>
@@ -58,6 +59,7 @@
       var brickOffsetLeft = 30;
       var score = 0;
       var toggleNight = document.getElementById("toggleNight");
+      var toggleDay = document.getElementById("toggleDay");
 
       var bricks = [];
       for (var c = 0; c < brickColumnCount; c++) {
@@ -74,8 +76,11 @@
       document.addEventListener("mousemove", mouseMoveHandler, false);
 
       toggleNight.addEventListener("click", function() {
-        toggleNight.innerHTML = "Day";
         document.body.style.backgroundColor = "black";
+      });
+
+      toggleDay.addEventListener("click", function() {
+        document.body.style.backgroundColor = "white";
       });
 
       function mouseMoveHandler(e) {
