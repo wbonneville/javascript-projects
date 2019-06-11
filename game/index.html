@@ -15,23 +15,33 @@
         margin: 0 auto;
       }
     </style>
-    <link href="main.css" rel="stylesheet"
+    <link href="main.css" rel="stylesheet" />
   </head>
   <body>
     <canvas id="myCanvas" width="480" height="320"></canvas>
 
-    <h1 id="h1"></h1>
+    <h1 id="h1">Block Crusher Game</h1>
+    <div id="nightMode">
+      <button type="button" id="toggleNight" class="nightModeClass">
+        &nbsp;Night Mode&nbsp;
+      </button>
+    </div>
+    <div id="dayMode">
+      <button type="button" id="toggleDay" class="dayModeClass">
+        &nbsp;Day Mode&nbsp;
+      </button>
+    </div>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
     <script>
       var youLose = document.getElementById("h1");
       var canvas = document.getElementById("myCanvas");
       var ctx = canvas.getContext("2d");
-      var x = canvas.width - 450;
-      var y = canvas.height - 160;
+      var x = canvas.width - 250;
+      var y = canvas.height - 30;
       var dx = 1;
       var dy = -2;
-      var ballRadius = 30;
+      var ballRadius = 20;
       var paddleHeight = 10;
       var paddleWidth = 100;
       var paddleX = (canvas.width - paddleWidth) / 2;
@@ -47,6 +57,7 @@
       var brickOffsetTop = 30;
       var brickOffsetLeft = 30;
       var score = 0;
+      var toggleNight = document.getElementById("toggleNight");
 
       var bricks = [];
       for (var c = 0; c < brickColumnCount; c++) {
@@ -61,6 +72,11 @@
       document.addEventListener("keydown", enterDownHandler, false);
       document.addEventListener("keyup", enterUpHandler, false);
       document.addEventListener("mousemove", mouseMoveHandler, false);
+
+      toggleNight.addEventListener("click", function() {
+        toggleNight.innerHTML = "Day";
+        document.body.style.backgroundColor = "black";
+      });
 
       function mouseMoveHandler(e) {
         var relativeX = e.clientX - canvas.offsetLeft;
@@ -206,7 +222,7 @@
         x += dx;
         y += dy;
       }
-      var interval = setInterval(draw, 5);
+      var interval = setInterval(draw, 8);
     </script>
   </body>
 </html>

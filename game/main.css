@@ -1,4 +1,5 @@
-* {
+body {
+    background-color: white;
     font-family: 'Futura';
 }
 
@@ -10,6 +11,8 @@ canvas {
     top: 50%;
     margin-left: -240px;
     margin-top: -160px;
+    background-color: rgb(226, 211, 184);
+    border: 3px solid rgb(255, 255, 255);
 }
 
 #h1 {
@@ -17,4 +20,26 @@ canvas {
     justify-content: center;
     width: auto;
     padding-top: 50px;
+}
+
+#nightMode,
+#dayMode {
+    display: flex;
+    margin-left: 200px;
+}
+
+#dayMode {
+    padding-top: 10px;
+}
+
+.nightModeClass,
+.dayModeClass {
+    font-size: 16px;
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    border: 2px solid rgb(0, 0, 0);
+}
+
+.nightModeClass:hover {
+    border: 2px solid rgb(33, 13, 212);
 }
