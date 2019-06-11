@@ -21,6 +21,7 @@
     <canvas id="myCanvas" width="480" height="320"></canvas>
 
     <h1 id="h1"></h1>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
     <script>
       var youLose = document.getElementById("h1");
@@ -45,6 +46,7 @@
       var brickPadding = 10;
       var brickOffsetTop = 30;
       var brickOffsetLeft = 30;
+      var score = 0;
 
       var bricks = [];
       for (var c = 0; c < brickColumnCount; c++) {
@@ -58,6 +60,14 @@
       document.addEventListener("keyup", keyUpHandler, false);
       document.addEventListener("keydown", enterDownHandler, false);
       document.addEventListener("keyup", enterUpHandler, false);
+      document.addEventListener("mousemove", mouseMoveHandler, false);
+
+      function mouseMoveHandler(e) {
+        var relativeX = e.clientX - canvas.offsetLeft;
+        if (relativeX > 0 && relativeX < canvas.width) {
+          paddleX = relativeX - paddleWidth / 2;
+        }
+      }
 
       function keyDownHandler(e) {
         if (e.key == "Right" || e.key == "ArrowRight") {
@@ -88,11 +98,24 @@
               ) {
                 dy = -dy;
                 b.status = 0;
+                score++;
+                if (score == brickRowCount * brickColumnCount) {
+                  alert("Congratulations!", "You won!");
+                  document.location.reload();
+                  clearInterval(interval);
+                }
               }
             }
           }
         }
       }
+
+      function drawScore() {
+        ctx.font = "16px Futura";
+        ctx.fillStyle = "#0095DD";
+        ctx.fillText("score: " + score, 8, 18);
+      }
+
       function enterDownHandler(e) {
         if (e.key === "Enter") {
           enterPressed = true;
@@ -150,6 +173,7 @@
         drawPaddle();
         drawBricks();
         collisionDetection();
+        drawScore();
 
         if (x + dx > canvas.width - ballRadius || x + dx < ballRadius) {
           dx = -dx;
@@ -182,7 +206,6 @@
         x += dx;
         y += dy;
       }
-
       var interval = setInterval(draw, 5);
     </script>
   </body>
