@@ -20,8 +20,8 @@
   <body>
     <canvas id="myCanvas" width="480" height="320"></canvas>
 
-    <h1 id="h1">Block Crusher Game</h1>
-    <div id="nightMode">
+    
+    <!-- <div id="nightMode"> -->
       <button type="button" id="toggleNight" class="nightModeClass hvr-glow">
         &nbsp;Night Mode&nbsp;
       </button>
@@ -32,12 +32,12 @@
       </button>
     </div>
     <div class="background-container">
-            <div class="stars"></div>
-            <div class="twinkling"></div>
-            
+        <div class="stars"></div>
+        <div class="twinkling"></div>
+    </div>
+    <h1 id="h1">Block Crusher Game</h1>
             
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <script type="text/javascript" src="js/paper.js"></script>
     <script type="text/paperscript" canvas="myCanvas"></script>
     <script>
       var youLose = document.getElementById("h1");
@@ -45,11 +45,11 @@
       var ctx = canvas.getContext("2d");
       var x = canvas.width - 250;
       var y = canvas.height - 30;
-      var dx = 1;
+      var dx = 2;
       var dy = -2;
       var ballRadius = 20;
       var paddleHeight = 10;
-      var paddleWidth = 100;
+      var paddleWidth = 70;
       var paddleX = (canvas.width - paddleWidth) / 2;
       var rightPressed = false;
       var leftPressed = false;
@@ -116,16 +116,16 @@
       function collisionDetection() {
         for (var c = 0; c < brickColumnCount; c++) {
           for (var r = 0; r < brickRowCount; r++) {
-            var b = bricks[c][r];
-            if (b.status == 1) {
+            var brick = bricks[c][r];
+            if (brick.status == 1) {
               if (
-                x > b.x &&
-                x < b.x + brickWidth &&
-                y > b.y &&
-                y < b.y + brickHeight
+                x + ballRadius > brick.x &&
+                x - ballRadius < brick.x + brickWidth &&
+                y + ballRadius > brick.y &&
+                y - ballRadius < brick.y + brickHeight
               ) {
                 dy = -dy;
-                b.status = 0;
+                brick.status = 0;
                 score++;
                 if (score == brickRowCount * brickColumnCount) {
                   alert("Congratulations!", "You won!");
@@ -218,11 +218,14 @@
         if (y + dy < ballRadius) {
           dy = -dy;
         } else if (y + dy > canvas.height - ballRadius) {
-          if (x > paddleX && x < paddleX + paddleWidth) {
+          if (x + ballRadius > paddleX && x - ballRadius < paddleX + paddleWidth) {
             dy = -dy;
           } else {
+            if (!gameOver && youLose) {
+                youLose.innerHTML = "You lose... press Enter to try again.";
+            }
+            
             gameOver = true;
-            youLose.innerHTML = "You lose... press Enter to try again.";
             if (gameOver === true && enterPressed === true) {
               document.location.reload();
               clearInterval(interval);
@@ -241,8 +244,10 @@
         }
         x += dx;
         y += dy;
+        dx *= 1.001;
+        dy *= 1.001;
       }
-      var interval = setInterval(draw, 8);
+      var interval = setInterval(draw, 1000 / 60);
     </script>
   </body>
 </html>
