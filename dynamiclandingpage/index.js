@@ -7,6 +7,9 @@ const time = document.getElementById('time'),
 
 // Time
 
+// Options
+const showAmPm = true;
+
 function showTime() {
     let today = new Date(),
         hour = today.getHours(),
@@ -15,14 +18,15 @@ function showTime() {
 
     // AM or PM
 
-    const amPM = hour >= 12 ? 'PM' : 'AM';
+    const amPm = hour >= 12 ? 'PM' : 'AM';
 
     // 12hr Format
     hour = hour % 12 || 12;
 
     // Output time
 
-    time.innerHTML = `${hour}<span>:</span>${addZero(min)}<span>:</span>${addZero(sec)}`;
+    time.innerHTML = `${hour}<span>:</span>${addZero(min)}<span>:</span>${addZero(sec)}
+    ${showAmPm ? amPm : ''}`;
 
     setTimeout(showTime, 1000)
 }
@@ -72,18 +76,34 @@ function getFocus() {
     }
 }
 
-function setName() {
+function setName(e) {
     if (e.type === 'keypress') {
-
+        // make sure enter is pressed
+        if (e.which == 13 || e.keyCode == 13) {
+            localStorage.setItem('name', e.target.innerText);
+            name.blur();
+        }
     } else {
-        localStorage.setItem('name', e.target.innerText)
+        localStorage.setItem('name', e.target.innerText);
+    }
+}
+
+function setFocus(e) {
+    if (e.type === 'keypress') {
+        // make sure enter is pressed
+        if (e.which == 13 || e.keyCode == 13) {
+            localStorage.setItem('focus', e.target.innerText);
+            focus.blur();
+        }
+    } else {
+        localStorage.setItem('focus', e.target.innerText);
     }
 }
 
 name.addEventListener('keypress', setName)
-
-
 name.addEventListener('blur', setName)
+focus.addEventListener('keypress', setFocus)
+focus.addEventListener('blur', setFocus)
 // Run
 
 showTime();
