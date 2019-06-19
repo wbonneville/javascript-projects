@@ -53,9 +53,40 @@ function setBgGreet() {
         greeting.textContent = "Good Evening"
         document.body.style.color = 'white';
     }
+
 }
 
+function getName() {
+    if (localStorage.getItem('name') === null) {
+        name.textContent = '[Enter Name]'
+    } else {
+        name.textContent = localStorage.getItem('name')
+    }
+}
+
+function getFocus() {
+    if (localStorage.getItem('focus') === null) {
+        focus.textContent = '[Enter Focus]'
+    } else {
+        focus.textContent = localStorage.getItem('focus')
+    }
+}
+
+function setName() {
+    if (e.type === 'keypress') {
+
+    } else {
+        localStorage.setItem('name', e.target.innerText)
+    }
+}
+
+name.addEventListener('keypress', setName)
+
+
+name.addEventListener('blur', setName)
 // Run
 
 showTime();
-setBgGreet()
+setBgGreet();
+getName();
+getFocus();
