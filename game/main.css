@@ -4,7 +4,7 @@
 
 body {
     background-color: white;
-    font-family: 'Futura';
+    font-family: 'Futura', Arial, Helvetica, sans-serif;
     z-index: 10;
 }
 
