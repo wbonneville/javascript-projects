@@ -1,0 +1,18 @@
+img {
+    height: 300px;
+    width: auto;
+}
+
+#text {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
