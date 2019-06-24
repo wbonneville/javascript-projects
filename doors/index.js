@@ -8,11 +8,18 @@ door3.addEventListener("click", thirdDoor)
 var firstDoorClicked = false;
 var secondDoorClicked = false;
 var thirdDoorClicked = false;
+var finalStage = false;
 
 
 function firstDoor() {
     text.innerText = "You clicked the first door. Guess the next door to keep going and escape door-hell.";
     firstDoorClicked = true;
+    if (secondDoorClicked) {
+        text.innerText = "WHOA. You might have just ended up leaving our known universe. I highly suggest you try a completely different door."
+        document.body.style.backgroundColor = "red";
+        firstDoorClicked = false;
+        finalStage = true;
+    }
 }
 
 function secondDoor() {
@@ -20,5 +27,11 @@ function secondDoor() {
         text.innerText = "Getting closer! Guess the next door to continue out of door-hell!";
         secondDoorClicked = true;
     }
+}
 
+function thirdDoor() {
+    if (finalStage) {
+        text.innerText = "Fortunately, you've made it out. Congrats!"
+        document.body.style.backgroundColor = "white";
+    }
 }
