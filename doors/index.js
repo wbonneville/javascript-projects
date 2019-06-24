@@ -20,6 +20,7 @@ function firstDoor() {
         firstDoorClicked = false;
         finalStage = true;
     }
+
 }
 
 function secondDoor() {
@@ -27,11 +28,18 @@ function secondDoor() {
         text.innerText = "Getting closer! Guess the next door to continue out of door-hell!";
         secondDoorClicked = true;
     }
+    if (finalStage) {
+        text.innerText = "No!!! Anything but this door. Try at least once more!"
+        document.body.style.backgroundColor = "darkred"
+        secondDoorClicked = true;
+        firstDoorClicked = true;
+    }
 }
 
 function thirdDoor() {
     if (finalStage) {
         text.innerText = "Fortunately, you've made it out. Congrats!"
         document.body.style.backgroundColor = "white";
+        window.location.href = "index2.html"
     }
 }

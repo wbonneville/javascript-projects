@@ -9,10 +9,33 @@ img {
     padding: 20px;
 }
 
+#finalTextId {
+    display: flex;
+    justify-content: center;
+    font-size: 35px;
+}
+
+#bigWow {
+    display: flex;
+    justify-content: center;
+    font-size: 365px;
+    padding-left: 10px;
+}
+
 
 .container {
     display: flex;
     align-items: center;
     justify-content: center;
     height: 100vh;
+}
+
+#cake {
+    height: 500px;
+}
+
+#cakeId {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
